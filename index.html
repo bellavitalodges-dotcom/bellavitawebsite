@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BellaVita Collection · Apartment Algarve · Alporchinhos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sand: #F5F0E8;
+  --sand-dark: #E3D9C8;
+  --ocean: #1A3A4A;
+  --ocean-mid: #2C5F72;
+  --ocean-light: #4A8FA8;
+  --gold: #B8975A;
+  --gold-light: #D4B483;
+  --white: #FDFCFA;
+  --text: #1A1A1A;
+  --text-muted: #6B6460;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Jost', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--white);color:var(--text);font-size:16px;line-height:1.7;font-weight:300;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;background:rgba(15,32,42,0.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(184,151,90,0.25);}
+.nav-logo{font-family:var(--serif);font-size:1.35rem;font-weight:400;color:var(--gold-light);letter-spacing:0.06em;text-decoration:none;}
+.nav-logo span{font-style:italic;color:rgba(255,255,255,0.5);font-size:0.72rem;display:block;letter-spacing:0.18em;font-family:var(--sans);font-weight:300;margin-top:-2px;}
+.nav-links{display:flex;gap:2.2rem;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:400;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold-light);}
+.nav-cta{background:var(--gold);color:var(--white);padding:0.55rem 1.4rem;font-family:var(--sans);font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:400;cursor:pointer;text-decoration:none;transition:background 0.2s;}
+.nav-cta:hover{background:var(--gold-light);}
+
+/* HERO */
+.hero{height:100vh;min-height:680px;position:relative;display:flex;align-items:flex-end;padding-bottom:7rem;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(155deg,#0F2030 0%,#1E4D60 50%,#163A48 100%);}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 65% 55%,rgba(74,143,168,0.22) 0%,transparent 65%),radial-gradient(ellipse 35% 50% at 15% 75%,rgba(184,151,90,0.08) 0%,transparent 55%);}
+
+/* Photo placeholder — replace src with real image */
+.hero-photo{position:absolute;inset:0;background:url('FOTO_HERO.jpg') center/cover no-repeat;opacity:0.45;}
+.hero-photo-hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:rgba(255,255,255,0.18);font-size:0.72rem;letter-spacing:0.12em;text-align:center;pointer-events:none;white-space:nowrap;}
+
+.hero-content{position:relative;z-index:2;padding:0 3rem;max-width:860px;}
+.hero-eyebrow{font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem;font-weight:400;}
+.hero-title{font-family:var(--serif);font-size:clamp(2.8rem,5.5vw,5.2rem);font-weight:300;color:var(--white);line-height:1.06;margin-bottom:1.4rem;}
+.hero-title em{font-style:italic;color:var(--gold-light);}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.72);margin-bottom:1.8rem;max-width:500px;font-weight:300;line-height:1.8;}
+.hero-story{background:rgba(184,151,90,0.1);border-left:2px solid var(--gold);padding:1rem 1.4rem;margin-bottom:2.2rem;max-width:500px;}
+.hero-story p{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:rgba(255,255,255,0.85);line-height:1.65;}
+.hero-story cite{display:block;font-family:var(--sans);font-style:normal;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-top:0.6rem;font-weight:400;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{display:inline-block;background:var(--gold);color:var(--white);padding:0.95rem 2.4rem;text-decoration:none;font-size:0.76rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:400;transition:all 0.25s;border:1px solid transparent;}
+.btn-primary:hover{background:transparent;border-color:var(--gold);color:var(--gold-light);}
+.btn-outline{display:inline-block;background:transparent;color:rgba(255,255,255,0.8);padding:0.95rem 2.4rem;text-decoration:none;font-size:0.76rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:400;border:1px solid rgba(255,255,255,0.35);transition:all 0.25s;}
+.btn-outline:hover{border-color:var(--gold-light);color:var(--gold-light);}
+.hero-scroll{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.4rem;color:rgba(255,255,255,0.35);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;animation:bob 2.2s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
+.hero-scroll::after{content:'';width:1px;height:38px;background:linear-gradient(to bottom,rgba(255,255,255,0.35),transparent);}
+
+/* USP STRIP */
+.usp-strip{background:var(--ocean);display:flex;overflow-x:auto;}
+.usp-item{flex:1;min-width:170px;display:flex;align-items:center;gap:0.9rem;padding:1.8rem 1.8rem;border-right:1px solid rgba(255,255,255,0.08);}
+.usp-item:last-child{border-right:none;}
+.usp-icon{width:38px;height:38px;background:rgba(184,151,90,0.12);border:1px solid rgba(184,151,90,0.28);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px;}
+.usp-label{font-size:0.76rem;font-weight:500;color:var(--gold-light);display:block;margin-bottom:0.1rem;letter-spacing:0.04em;}
+.usp-text{font-size:0.76rem;color:rgba(255,255,255,0.65);line-height:1.45;}
+
+/* SECTIONS */
+section{padding:6rem 3rem;}
+.section-inner{max-width:1160px;margin:0 auto;}
+.section-eyebrow{font-size:0.68rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-bottom:0.9rem;font-weight:400;}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.12;color:var(--ocean);margin-bottom:1.4rem;}
+.section-title em{font-style:italic;color:var(--ocean-light);}
+.section-lead{font-size:0.92rem;color:var(--text-muted);max-width:560px;line-height:1.85;}
+
+/* STORY SECTION */
+.story-section{background:var(--sand);}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.story-quote{font-family:var(--serif);font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:300;font-style:italic;color:var(--ocean);line-height:1.45;border-left:3px solid var(--gold);padding-left:2rem;margin:2rem 0;}
+.story-text p{font-size:0.88rem;color:var(--text-muted);line-height:1.9;margin-bottom:1rem;}
+.story-sig{display:flex;align-items:center;gap:1rem;margin-top:2rem;}
+.story-sig-avatars{display:flex;}
+.story-avatar{width:44px;height:44px;border-radius:50%;background:var(--ocean);border:2px solid var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1rem;color:var(--gold-light);margin-right:-10px;}
+.story-sig-text{font-size:0.78rem;color:var(--text-muted);line-height:1.5;}
+.story-sig-text strong{display:block;color:var(--ocean);font-weight:500;font-size:0.82rem;}
+.story-visual{position:relative;}
+.story-photo-main{background:var(--sand-dark);aspect-ratio:4/5;position:relative;overflow:hidden;}
+.story-photo-main .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;color:var(--text-muted);font-size:0.75rem;font-style:italic;line-height:1.6;}
+.story-tag{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--ocean);color:var(--white);padding:1.2rem 1.5rem;font-size:0.72rem;}
+.story-tag strong{display:block;font-family:var(--serif);font-size:1.6rem;font-weight:300;color:var(--gold-light);line-height:1;}
+
+/* APARTMENT */
+.apt-section{background:var(--white);}
+.apt-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center;}
+.apt-mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:260px 180px;gap:10px;}
+.apt-photo{background:var(--sand-dark);position:relative;overflow:hidden;}
+.apt-photo:first-child{grid-column:1/-1;}
+.apt-photo .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-muted);font-style:italic;text-align:center;padding:1rem;line-height:1.6;}
+.apt-photo-tag{position:absolute;bottom:8px;left:10px;font-size:0.62rem;letter-spacing:0.1em;color:rgba(255,255,255,0.7);background:rgba(0,0,0,0.38);padding:2px 8px;}
+.apt-features{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin:1.8rem 0;}
+.feat{display:flex;align-items:flex-start;gap:0.55rem;font-size:0.8rem;color:var(--text-muted);line-height:1.5;}
+.feat::before{content:'';width:4px;height:4px;background:var(--gold);border-radius:50%;margin-top:0.65rem;flex-shrink:0;}
+.apt-callout{background:var(--sand);border-left:3px solid var(--gold);padding:1.4rem 1.6rem;margin-top:1.5rem;}
+.apt-callout p{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--ocean);line-height:1.65;}
+
+/* LOCATION */
+.loc-section{background:var(--ocean);color:var(--white);}
+.loc-section .section-title{color:var(--white);}
+.loc-section .section-title em{color:var(--gold-light);}
+.loc-section .section-eyebrow{color:var(--gold);}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3.5rem;align-items:start;}
+.proximity-list{}
+.prox-item{display:flex;justify-content:space-between;align-items:center;padding:0.9rem 0;border-bottom:1px solid rgba(255,255,255,0.08);font-size:0.83rem;}
+.prox-name{color:rgba(255,255,255,0.8);}
+.prox-dist{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--gold-light);}
+.transport-box{background:rgba(255,255,255,0.05);border:1px solid rgba(184,151,90,0.2);padding:2.2rem;}
+.transport-box h3{font-family:var(--serif);font-size:1.5rem;font-weight:300;color:var(--gold-light);margin-bottom:1.6rem;}
+.t-item{display:flex;gap:0.9rem;margin-bottom:1.3rem;font-size:0.82rem;color:rgba(255,255,255,0.72);line-height:1.6;}
+.t-item strong{color:rgba(255,255,255,0.92);}
+.t-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+
+/* EXPERIENCES */
+.exp-section{background:var(--sand);}
+.exp-tabs{display:flex;border-bottom:1px solid var(--sand-dark);margin-bottom:2.8rem;overflow-x:auto;}
+.exp-tab{padding:0.8rem 1.8rem;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;cursor:pointer;border:none;background:none;font-family:var(--sans);font-weight:400;color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.2s;white-space:nowrap;}
+.exp-tab.active{color:var(--ocean);border-bottom-color:var(--gold);}
+.exp-panel{display:none;}
+.exp-panel.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.4rem;}
+.exp-card{background:var(--white);border:1px solid var(--sand-dark);padding:1.5rem;transition:border-color 0.2s,box-shadow 0.2s;}
+.exp-card:hover{border-color:var(--gold);}
+.exp-tag{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.55rem;}
+.exp-card h4{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:var(--ocean);margin-bottom:0.45rem;}
+.exp-card p{font-size:0.8rem;color:var(--text-muted);line-height:1.65;}
+.exp-dist{margin-top:0.7rem;font-size:0.7rem;color:var(--ocean-light);font-style:italic;}
+
+/* PRICING */
+.pricing-section{background:var(--white);}
+.pricing-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem;}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--sand-dark);}
+.price-card{background:var(--white);padding:2.2rem;text-align:center;position:relative;}
+.price-card.featured{background:var(--ocean);}
+.price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--white);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;padding:3px 14px;white-space:nowrap;}
+.price-season{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;}
+.price-card.featured .price-season{color:rgba(255,255,255,0.5);}
+.price-months{font-size:0.78rem;color:var(--text-muted);margin-bottom:1.2rem;}
+.price-card.featured .price-months{color:rgba(255,255,255,0.6);}
+.price-amount{font-family:var(--serif);font-size:3rem;font-weight:300;color:var(--ocean);line-height:1;}
+.price-card.featured .price-amount{color:var(--gold-light);}
+.price-amount sup{font-size:1.1rem;vertical-align:super;margin-right:2px;}
+.price-amount sub{font-size:0.9rem;color:var(--text-muted);}
+.price-card.featured .price-amount sub{color:rgba(255,255,255,0.4);}
+.price-min{margin-top:0.8rem;font-size:0.7rem;color:var(--text-muted);}
+.price-card.featured .price-min{color:rgba(255,255,255,0.4);}
+.early-bird-box{background:var(--sand);border:1px solid var(--sand-dark);padding:2rem 2.5rem;display:flex;align-items:center;gap:2.5rem;margin-top:2rem;}
+.eb-badge{background:var(--ocean);color:var(--gold-light);font-family:var(--serif);font-size:2rem;font-weight:300;padding:0.8rem 1.4rem;flex-shrink:0;text-align:center;line-height:1;}
+.eb-badge small{display:block;font-family:var(--sans);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:2px;}
+.eb-text h4{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--ocean);margin-bottom:0.3rem;}
+.eb-text p{font-size:0.82rem;color:var(--text-muted);line-height:1.65;}
+
+/* BOOKING */
+.booking-section{background:var(--ocean);}
+.booking-inner{max-width:780px;margin:0 auto;text-align:center;}
+.booking-inner .section-title{color:var(--white);}
+.booking-inner .section-eyebrow{color:var(--gold);}
+.booking-inner .section-lead{color:rgba(255,255,255,0.65);margin:0 auto 2.5rem;}
+.booking-widget-placeholder{background:rgba(255,255,255,0.05);border:1px solid rgba(184,151,90,0.25);padding:3rem;margin-top:2rem;}
+.booking-widget-placeholder p{color:rgba(255,255,255,0.5);font-size:0.82rem;font-style:italic;margin-bottom:1.2rem;line-height:1.7;}
+.booking-widget-placeholder code{display:block;background:rgba(0,0,0,0.3);padding:1.2rem;font-size:0.75rem;color:var(--gold-light);font-family:monospace;text-align:left;border:1px solid rgba(184,151,90,0.15);}
+.contact-strip{display:flex;justify-content:center;gap:3rem;margin-top:3rem;flex-wrap:wrap;}
+.contact-item{text-align:center;}
+.contact-item .ci-label{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.3rem;}
+.contact-item .ci-val{font-family:var(--serif);font-size:1.1rem;color:rgba(255,255,255,0.85);}
+
+/* FOOTER */
+footer{background:#0A1B24;color:rgba(255,255,255,0.55);padding:4rem 3rem 2rem;}
+.footer-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:4rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+.footer-brand .logo{font-family:var(--serif);font-size:1.4rem;color:var(--gold-light);margin-bottom:0.8rem;}
+.footer-brand p{font-size:0.78rem;line-height:1.8;max-width:280px;}
+.footer-license{display:inline-block;margin-top:1.2rem;background:rgba(184,151,90,0.12);border:1px solid rgba(184,151,90,0.3);color:var(--gold-light);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;}
+footer h4{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem;font-weight:400;}
+footer ul{list-style:none;}
+footer ul li{margin-bottom:0.6rem;font-size:0.8rem;}
+footer ul a{color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;}
+footer ul a:hover{color:var(--gold-light);}
+.footer-bottom{max-width:1160px;margin:0 auto;padding-top:1.8rem;display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:rgba(255,255,255,0.25);}
+
+/* FADE IN */
+.fi{opacity:0;transform:translateY(22px);transition:opacity 0.75s ease,transform 0.75s ease;}
+.fi.vis{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  section{padding:4rem 1.5rem;}
+  .story-grid,.apt-grid,.loc-grid,.pricing-intro{grid-template-columns:1fr;gap:2.5rem;}
+  .hero-content{padding:0 1.5rem;}
+  .usp-strip{flex-direction:column;}
+  .usp-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.07);padding:1.2rem 1.5rem;}
+  .pricing-grid{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr;gap:2rem;}
+  .footer-bottom{flex-direction:column;gap:0.5rem;text-align:center;}
+  .early-bird-box{flex-direction:column;gap:1.2rem;}
+  .story-tag{bottom:-1rem;right:-0.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">BellaVita Collection<span>Alporchinhos · Algarve · Portugal</span></a>
+  <ul class="nav-links">
+    <li><a href="#geschichte">Unsere Geschichte</a></li>
+    <li><a href="#apartment">Das Apartment</a></li>
+    <li><a href="#lage">Lage</a></li>
+    <li><a href="#entdecken">Entdecken</a></li>
+    <li><a href="#preise">Preise</a></li>
+    <li><a href="#buchen">Buchen</a></li>
+  </ul>
+  <a href="#buchen" class="nav-cta">Verfügbarkeit prüfen</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-photo"></div>
+  <p class="hero-photo-hint">→ Hier euer schönstes Foto einfügen (Balkon-Meerblick oder Strandzugang)<br>Datei: FOTO_HERO.jpg — einfach umbenennen und im selben Ordner ablegen</p>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Alporchinhos · Porches · Algarve · Portugal</p>
+    <h1 class="hero-title">Das Beste der Algarve —<br><em>an einem einzigen Ort.</em></h1>
+    <p class="hero-sub">Meeresreihe. Privater Strandzugang. Direkt neben dem VilaVita Parc. Entdeckt das Apartment, das wir nach 15 Jahren Algarve-Liebe für euch gefunden haben.</p>
+
+    <div class="hero-story">
+      <p>"15 Jahre haben wir diesen Ort durchs­treift — als Singles, als Paare, als Familien. Alporchinhos ist unser Herzort. Jetzt teilen wir ihn mit euch."</p>
+      <cite>Marcello &amp; Dario · Gründer, BellaVita Collection</cite>
+    </div>
+
+    <div class="hero-btns">
+      <a href="#buchen" class="btn-primary">Jetzt buchen</a>
+      <a href="#geschichte" class="btn-outline">Unsere Geschichte</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Entdecken</div>
+</section>
+
+<!-- USP STRIP -->
+<div class="usp-strip">
+  <div class="usp-item">
+    <div class="usp-icon">🏖️</div>
+    <div>
+      <span class="usp-label">Erster Meeresreihe</span>
+      <span class="usp-text">Privater Strandzugang · Praia Vale do Olival</span>
+    </div>
+  </div>
+  <div class="usp-item">
+    <div class="usp-icon">⭐</div>
+    <div>
+      <span class="usp-label">Michelin direkt nebenan</span>
+      <span class="usp-text">2-Sterne Restaurant Ocean · VilaVita Parc</span>
+    </div>
+  </div>
+  <div class="usp-item">
+    <div class="usp-icon">🏊</div>
+    <div>
+      <span class="usp-label">Pool &amp; Anlage</span>
+      <span class="usp-text">Großer Pool + Kinderpool · gepflegter Garten</span>
+    </div>
+  </div>
+  <div class="usp-item">
+    <div class="usp-icon">🔐</div>
+    <div>
+      <span class="usp-label">Smart-Lock</span>
+      <span class="usp-text">Persönlicher Code · 300 Mbit/s WLAN</span>
+    </div>
+  </div>
+  <div class="usp-item">
+    <div class="usp-icon">🗺️</div>
+    <div>
+      <span class="usp-label">Zentral &amp; vielseitig</span>
+      <span class="usp-text">Alles der Algarve in Reichweite · kein Auto nötig</span>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story-section" id="geschichte">
+  <div class="section-inner">
+    <div class="story-grid">
+      <div class="fi">
+        <p class="section-eyebrow">Unsere Geschichte</p>
+        <h2 class="section-title">15 Jahre Algarve —<br><em>ein Ort, der uns nicht loslässt.</em></h2>
+        <blockquote class="story-quote">"Wir haben die Algarve als Singles erlebt, als Paare, mit unseren Familien und Kindern. Immer wieder zog es uns hierher — und immer wieder nach Alporchinhos."</blockquote>
+
+        <div class="story-text">
+          <p>Was als Urlaubsliebe begann, wurde zur tiefen Überzeugung: Dieser Ort vereint alles, was man von einem perfekten Urlaub träumt. Die wilde Schönheit der Steilklippen. Das türkisfarbene Wasser. Die Stille am frühen Morgen, wenn das Meer noch ganz euch gehört.</p>
+          <p>Alporchinhos liegt genau dort, wo die Algarve am schönsten ist — und ist trotzdem der perfekte Ausgangspunkt, um die gesamte Küste zu entdecken. Michelin-Sterne auf der einen Seite, unberührte Buchten auf der anderen.</p>
+          <p>Als wir die Möglichkeit hatten, dieses Apartment zu erwerben, zögerten wir keine Sekunde. Jetzt teilen wir unseren Herzort mit Menschen, die das Besondere genauso lieben wie wir.</p>
+        </div>
+
+        <div class="story-sig">
+          <div class="story-sig-avatars">
+            <div class="story-avatar" style="z-index:2">M</div>
+            <div class="story-avatar">D</div>
+          </div>
+          <div class="story-sig-text">
+            <strong>Marcello &amp; Dario</strong>
+            Gastgeber · BellaVita Collection<br>
+            <span style="font-size:0.72rem;font-style:italic">15 Jahre Algarve-Erfahrung · AL-Lizenz erhalten 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-visual fi">
+        <div class="story-photo-main">
+          <div class="ph">Foto: Blick auf die Anlage oder Strandzugang<br><small>→ FOTO_STORY.jpg</small></div>
+        </div>
+        <div class="story-tag">
+          <strong>15</strong>
+          Jahre<br>Algarve
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APARTMENT -->
+<section class="apt-section" id="apartment">
+  <div class="section-inner">
+    <div class="apt-grid">
+      <div class="apt-mosaic fi">
+        <div class="apt-photo" style="grid-column:1/-1;height:260px;">
+          <div class="ph">Hauptfoto: Balkon mit Meerblick &amp; Markise<br><small>→ FOTO_BALKON.jpg</small></div>
+          <span class="apt-photo-tag">Südbalkon · Meerblick · Markise</span>
+        </div>
+        <div class="apt-photo" style="height:180px;">
+          <div class="ph">Wohn-Esszimmer<br><small>→ FOTO_WOHNZIMMER.jpg</small></div>
+          <span class="apt-photo-tag">Wohn-Esszimmer</span>
+        </div>
+        <div class="apt-photo" style="height:180px;">
+          <div class="ph">Schlafzimmer<br><small>→ FOTO_SCHLAFZIMMER.jpg</small></div>
+          <span class="apt-photo-tag">Kingsize-Bett 180×200 cm</span>
+        </div>
+      </div>
+
+      <div class="fi">
+        <p class="section-eyebrow">Das Apartment</p>
+        <h2 class="section-title">Raum für <em>unvergessliche Momente.</em></h2>
+        <p class="section-lead">Hell, lichtdurchflutet, mit offenem Blick aufs Meer. Das Rauschen des Atlantiks begleitet euch auf dem Balkon und in jedem Zimmer.</p>
+
+        <div class="apt-features">
+          <div class="feat">Schlafzimmer · Kingsize-Bett 180×200 cm</div>
+          <div class="feat">Einbauschrank &amp; Kommode</div>
+          <div class="feat">Abtrennbares Wohn-Esszimmer</div>
+          <div class="feat">Hochwertiges Schlafsofa (ital. Matratze 14 cm)</div>
+          <div class="feat">Badezimmer mit Badewanne &amp; Bidet</div>
+          <div class="feat">Separates Gästebad</div>
+          <div class="feat">Vollausgestattete offene Küche</div>
+          <div class="feat">Waschmaschine &amp; Trockner (Einbau)</div>
+          <div class="feat">Südbalkon · Sitzecke · Esstisch · Markise</div>
+          <div class="feat">Smart-Lock · persönlicher Zugangscode</div>
+          <div class="feat">300 Mbit/s Highspeed-WLAN</div>
+          <div class="feat">2 Tiefgaragenstellplätze inklusive</div>
+          <div class="feat">Pool-Zugangskarte (elektronisch)</div>
+          <div class="feat">Babybett auf Anfrage verfügbar</div>
+        </div>
+
+        <div class="apt-callout">
+          <p>"Das Meeresrauschen hört man aus jedem Zimmer und vom Balkon. Jeden Morgen aufwachen mit dem Klang des Atlantiks."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="loc-section" id="lage">
+  <div class="section-inner">
+    <div class="fi">
+      <p class="section-eyebrow">Die Lage</p>
+      <h2 class="section-title">Zentral. Ruhig. <em>Unschlagbar.</em></h2>
+      <p class="section-lead" style="color:rgba(255,255,255,0.65);">Direkt an der Grenze zwischen Porches und Armação de Pêra — und doch so ruhig, als wäre die Welt weit weg. Von hier aus ist die gesamte Algarve in Reichweite.</p>
+    </div>
+
+    <div class="loc-grid">
+      <div class="fi">
+        <div class="prox-item"><span class="prox-name">Praia Vale do Olival (privater Zugang)</span><span class="prox-dist">direkt</span></div>
+        <div class="prox-item"><span class="prox-name">VilaVita Parc Resort &amp; Spa</span><span class="prox-dist">direkt nebenan</span></div>
+        <div class="prox-item"><span class="prox-name">Ocean Restaurant (2 Michelin-Sterne)</span><span class="prox-dist">nebenan</span></div>
+        <div class="prox-item"><span class="prox-name">Promenade &amp; Restaurants Armação de Pêra</span><span class="prox-dist">zu Fuß</span></div>
+        <div class="prox-item"><span class="prox-name">Supermarkt &amp; Cafés</span><span class="prox-dist">zu Fuß</span></div>
+        <div class="prox-item"><span class="prox-name">Autovermietung</span><span class="prox-dist">Nachbarstraße</span></div>
+        <div class="prox-item"><span class="prox-name">Praia de Armação de Pêra (5 km Sandstrand)</span><span class="prox-dist">ca. 1,1 km</span></div>
+        <div class="prox-item"><span class="prox-name">Amendoeira Golf Resort (Faldo Course)</span><span class="prox-dist">ca. 6 km</span></div>
+        <div class="prox-item"><span class="prox-name">Salgados Golf Course</span><span class="prox-dist">ca. 10 min</span></div>
+        <div class="prox-item"><span class="prox-name">Benagil-Höhle (per Boot)</span><span class="prox-dist">ca. 10 min</span></div>
+        <div class="prox-item"><span class="prox-name">Silves (Maurenschloss)</span><span class="prox-dist">ca. 25 km</span></div>
+        <div class="prox-item"><span class="prox-name">Flughafen Faro</span><span class="prox-dist">ca. 50 km</span></div>
+      </div>
+
+      <div class="transport-box fi">
+        <h3>Anreise &amp; Mobilität</h3>
+        <div class="t-item"><span class="t-icon">✈️</span><div><strong>Flughafen Faro</strong><br>ca. 50 km · Uber: ca. 35–40 € (einfach) · kein Vorbuchen nötig, direkt bei Ankunft buchbar</div></div>
+        <div class="t-item"><span class="t-icon">🚗</span><div><strong>Autovermietung vor Ort</strong><br>Direkt in der Nachbarstraße — flexibel buchbar, auch nur für einzelne Ausflugstage</div></div>
+        <div class="t-item"><span class="t-icon">🚶</span><div><strong>Vollständig autofrei möglich</strong><br>Strand, Restaurants, Einkauf, Cafés — alles bequem zu Fuß erreichbar</div></div>
+        <div class="t-item"><span class="t-icon">🚌</span><div><strong>Öffentliche Busse</strong><br>EVA Transportes verbindet Armação de Pêra mit Albufeira, Portimão &amp; Faro</div></div>
+        <div class="t-item"><span class="t-icon">⛵</span><div><strong>Bootstouren vom Strand</strong><br>Grotten, Benagil-Höhle &amp; Delfinbeobachtung — Boote starten direkt vom Strand</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCES -->
+<section class="exp-section" id="entdecken">
+  <div class="section-inner">
+    <div class="fi" style="max-width:600px;margin-bottom:3rem;">
+      <p class="section-eyebrow">Die Umgebung</p>
+      <h2 class="section-title">Entdeckt die <em>schönste Küste Europas.</em></h2>
+      <p class="section-lead">Von Alporchinhos aus ist die gesamte Algarve in Reichweite — Michelin-Gastronomie, wilde Klippen, Weinregionen und Kultur in perfekter Balance.</p>
+    </div>
+
+    <div class="exp-tabs">
+      <button class="exp-tab active" onclick="showTab('gast',this)">Gastronomie &amp; Wein</button>
+      <button class="exp-tab" onclick="showTab('natur',this)">Natur &amp; Strand</button>
+      <button class="exp-tab" onclick="showTab('sport',this)">Golf &amp; Sport</button>
+      <button class="exp-tab" onclick="showTab('familie',this)">Mit Kindern</button>
+      <button class="exp-tab" onclick="showTab('ausflug',this)">Ausflüge</button>
+    </div>
+
+    <div id="tab-gast" class="exp-panel active">
+      <div class="exp-card">
+        <div class="exp-tag">⭐⭐ 2 Michelin-Sterne</div>
+        <h4>Ocean Restaurant</h4>
+        <p>Eines der besten Restaurants Portugals. Chef Hans Neuner kreiert jährlich neue Themenmenüs — ein kulinarisches Gesamtkunstwerk im VilaVita Parc, direkt nebenan.</p>
+        <p class="exp-dist">Direkt nebenan · Reservierung empfohlen</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Fine Dining · Meeresterrasse</div>
+        <h4>Atlantico Restaurant</h4>
+        <p>Das Schwesterrestaurant des Ocean mit spektakulärer Atlantik-Terrasse. Chef João Viegas kocht mit frischen, biologischen Zutaten. Michelin-Guide empfohlen.</p>
+        <p class="exp-dist">VilaVita Parc · nebenan</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Michelin Guide 2026 · Empfohlen</div>
+        <h4>Coral</h4>
+        <p>Neu im Michelin Guide 2026 — direkt in Porches. Lokale Algarve-Küche auf hohem Niveau, frisch und authentisch.</p>
+        <p class="exp-dist">Porches · wenige Minuten</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">⭐ Michelin · Carvoeiro</div>
+        <h4>Bon Bon</h4>
+        <p>Ein Michelin-Stern in Carvoeiro — modernes portugiesisches Degustationsmenü in intimem Ambiente. Ein Abend, den man nicht vergisst.</p>
+        <p class="exp-dist">ca. 15 km · Carvoeiro</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Wellness &amp; Spa</div>
+        <h4>VilaVita Spa</h4>
+        <p>Das preisgekrönte Spa des VilaVita Parc ist auch für externe Gäste buchbar. Ideal für einen kompletten Wellness-Tag direkt nebenan.</p>
+        <p class="exp-dist">Direkt nebenan</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Wein &amp; Keramik</div>
+        <h4>Porches Pottery &amp; lokale Weingüter</h4>
+        <p>Das Dorf Porches ist bekannt für handgemachte Azulejos und Töpferei. Dazu: Weinbars und Weingüter der Region für Verkostungen.</p>
+        <p class="exp-dist">Porches · wenige Minuten</p>
+      </div>
+    </div>
+
+    <div id="tab-natur" class="exp-panel">
+      <div class="exp-card">
+        <div class="exp-tag">Euer Privatstrand</div>
+        <h4>Praia Vale do Olival</h4>
+        <p>Direkt aus der Anlage erreichbar — eine der ruhigsten und schönsten Buchten dieser Küste. Kristallklares Wasser, natürliche Felsen, kaum Touristenmassen.</p>
+        <p class="exp-dist">Privater Direktzugang aus der Anlage</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Weltwunder der Algarve</div>
+        <h4>Benagil-Höhle</h4>
+        <p>Die berühmteste Meereshöhle Portugals — per Boot, Kajak oder SUP erreichbar. Kleine Boote starten direkt vom Strand bei Armação de Pêra.</p>
+        <p class="exp-dist">ca. 10 min mit dem Boot</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Klippenpfad</div>
+        <h4>Küstenwanderweg</h4>
+        <p>Ab der Anlage führt ein Pfad an den Steilklippen entlang zu den Nachbarbuchten Praia dos Beijinhos und Cova Redonda — mit atemberaubenden Panoramen.</p>
+        <p class="exp-dist">Ab der Anlage zu Fuß</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">5 km Sandstrand</div>
+        <h4>Praia de Armação de Pêra</h4>
+        <p>Einer der längsten Strände der Algarve — bis nach Galé fast 6 km zu Fuß. Familien­freundlich, mit Strandrestaurants und ruhigem Wasser.</p>
+        <p class="exp-dist">ca. 1,1 km zu Fuß</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Naturschutzgebiet</div>
+        <h4>Lagoa dos Salgados</h4>
+        <p>Salzmarsch-Schutzgebiet mit Holzsteg und reicher Vogelwelt — ideal für frühmorgendliche Spaziergänge abseits des Strandtrubels.</p>
+        <p class="exp-dist">ca. 5 km</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Historisch</div>
+        <h4>Fortaleza de Armação de Pêra</h4>
+        <p>Historisches Küstenfort mit Kapelle und Panoramablick über die Bucht. Ein schöner Abendspaziergang von der Anlage aus.</p>
+        <p class="exp-dist">ca. 1,1 km zu Fuß</p>
+      </div>
+    </div>
+
+    <div id="tab-sport" class="exp-panel">
+      <div class="exp-card">
+        <div class="exp-tag">Championship · 6 km entfernt</div>
+        <h4>Amendoeira Golf Resort</h4>
+        <p>Zwei Weltklasse-Plätze: der renommierte Faldo Course (18-Loch, par 72) und der O'Connor Jnr Course — inmitten von 270 Hektar Algarve-Natur.</p>
+        <p class="exp-dist">ca. 6 km · Pêra</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Links-Platz · Naturreservat</div>
+        <h4>Salgados Golf Course</h4>
+        <p>18-Loch par 72 Links-Platz inmitten eines Naturschutzgebietes. Blick auf den Atlantik, natürliche Wasserhindernisse, einmalige Atmosphäre.</p>
+        <p class="exp-dist">ca. 10 min</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Wassersport</div>
+        <h4>SUP, Kajak &amp; Surfen</h4>
+        <p>Stand-Up-Paddling und Kajaktouren an den Klippen entlang — perfekte Bedingungen für Anfänger und Fortgeschrittene. Schulen direkt am Strand.</p>
+        <p class="exp-dist">Direkt am Strand</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Adrenalin</div>
+        <h4>Bootstouren &amp; Sportfischen</div>
+        <p>Schnellboote, Katamarane und Sportfischertouren starten von Armação de Pêra. Delfinbeobachtung inklusive auf vielen Touren.</p>
+        <p class="exp-dist">Ca. 1 km · Strand Armação</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Wandern</div>
+        <h4>Rota Vicentina &amp; Klippenpfade</h4>
+        <p>Die Algarve bietet spektakuläre Küstenwanderungen — von kurzen Klippenpfaden ab der Anlage bis zu mehrtägigen Routen Richtung Sagres.</p>
+        <p class="exp-dist">Ab der Anlage</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Entspannung</div>
+        <h4>VilaVita Spa &amp; Wellness</h4>
+        <p>Massagen, Meeresanwendungen und das komplette Spa-Programm des VilaVita Parc — auch für externe Gäste buchbar. Der perfekte Ruhetag.</p>
+        <p class="exp-dist">Direkt nebenan</p>
+      </div>
+    </div>
+
+    <div id="tab-familie" class="exp-panel">
+      <div class="exp-card">
+        <div class="exp-tag">In der Anlage</div>
+        <h4>Kinderpool &amp; Spielbereich</h4>
+        <p>Der Compléxo verfügt über einen separaten Kinderpool sowie einen Gartenbereich mit Sandkasten und Trampolin — direkt vor der Haustür.</p>
+        <p class="exp-dist">In der Anlage · kostenlos</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Themenparkwelt</div>
+        <h4>Zoomarine Algarve</h4>
+        <p>Delfin-Shows, Seelöwen, Piratenschiff-Rutsche und die Möglichkeit, mit Delfinen zu schwimmen. Für Kinder eines der Highlights der Algarve.</p>
+        <p class="exp-dist">ca. 10 min</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Wasserpark</div>
+        <h4>Aqualand Algarve</h4>
+        <p>Wasserrutschen, Wellenbad, Lazy River und Kinderbecken in Alcantarilha. Geöffnet Juni bis September — ein voller Familientag.</p>
+        <p class="exp-dist">ca. 5 km · Alcantarilha</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Interaktiver Zoo</div>
+        <h4>Krazy World</h4>
+        <p>Tiere streicheln, Mini-Quad, Kart­fahren, Klettern, Paintball — perfekter Familienausflug für Kinder aller Altersgruppen.</p>
+        <p class="exp-dist">ca. 15 min</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Welt-Rekord</div>
+        <h4>Sand City Lagoa</h4>
+        <p>Der größte Sandskulpturen-Park der Welt — jedes Jahr mit einem neuen Thema. Faszinierend für Groß und Klein.</p>
+        <p class="exp-dist">ca. 10 min · Lagoa</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Erholung pur</div>
+        <h4>Strandleben für Familien</h4>
+        <p>Der Strand Vale do Olival bietet ruhiges, flaches Wasser — ideal für Kleinkinder. Babybett im Apartment auf Anfrage verfügbar.</p>
+        <p class="exp-dist">Privater Zugang · direkt</p>
+      </div>
+    </div>
+
+    <div id="tab-ausflug" class="exp-panel">
+      <div class="exp-card">
+        <div class="exp-tag">Moorisches Erbe · 25 km</div>
+        <h4>Silves &amp; das Maurenschloss</h4>
+        <p>Die ehemalige Hauptstadt der Algarve mit imposanter roter Burg, Dom und archäologischem Museum. Ein unverzichtbarer Halbtagesausflug.</p>
+        <p class="exp-dist">ca. 25 km · 30 min</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Altstadt &amp; Strände · 40 km</div>
+        <h4>Lagos</h4>
+        <p>Charmante Altstadt, spektakuläre Felsformationen, Ponta da Piedade — und das historische Sklavenmarkt-Museum. Einer der schönsten Orte der Algarve.</p>
+        <p class="exp-dist">ca. 40 km · 40 min</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Ende Europas · 75 km</div>
+        <h4>Cabo de São Vicente</h4>
+        <p>Der südwestlichste Punkt Europas. Spektakuläre Klippen, ewiger Wind, Sonnenuntergang am Rand der Welt. Unvergesslich.</p>
+        <p class="exp-dist">ca. 75 km · 1 Std.</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Berge &amp; Thermalquellen · 40 km</div>
+        <h4>Serra de Monchique</h4>
+        <p>Der höchste Punkt der Algarve (Fóia, 902 m) mit Panoramablick über die gesamte Küste. Kurort Caldas de Monchique mit Thermalquellen.</p>
+        <p class="exp-dist">ca. 40 km · 45 min</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Lebendige Küstenstadt · 20 km</div>
+        <h4>Portimão &amp; Praia da Rocha</h4>
+        <p>Lebhafte Stadt mit Fischerhafen, fantastischen Restaurants und einem der bekanntesten Strände der Algarve direkt daneben.</p>
+        <p class="exp-dist">ca. 20 km · 20 min</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-tag">Faro &amp; Ria Formosa · 50 km</div>
+        <h4>Faro &amp; Naturpark</h4>
+        <p>Die Algarve-Hauptstadt mit hübscher Altstadt und das Naturschutzgebiet Ria Formosa mit Lagunen, Inseln und Flamingos.</p>
+        <p class="exp-dist">ca. 50 km · 45 min</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="preise">
+  <div class="section-inner">
+    <div class="pricing-intro">
+      <div class="fi">
+        <p class="section-eyebrow">Preise &amp; Verfügbarkeit</p>
+        <h2 class="section-title">Transparent. Fair. <em>Premium.</em></h2>
+        <p class="section-lead">Direktbuchungen über unsere Website sind immer günstiger als über Buchungsplattformen. Kein Verstecken von Gebühren — alles transparent.</p>
+      </div>
+      <div class="fi">
+        <div style="background:var(--sand);padding:1.5rem;border-left:3px solid var(--gold);">
+          <p style="font-size:0.78rem;color:var(--text-muted);line-height:1.8;"><strong style="color:var(--ocean);display:block;margin-bottom:0.4rem;">Direktbuchungs-Vorteil</strong>Wer direkt über unsere Website bucht, spart 5–8% gegenüber Airbnb und Booking.com — und steht mit uns in direktem Kontakt.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-grid fi">
+      <div class="price-card">
+        <div class="price-season">Nebensaison</div>
+        <div class="price-months">November – April</div>
+        <div class="price-amount"><sup>ab </sup>120<sub> €/Nacht</sub></div>
+        <div class="price-min">Mindestaufenthalt: 2 Nächte</div>
+      </div>
+      <div class="price-card">
+        <div class="price-season">Schulttersaison</div>
+        <div class="price-months">Mai – Juni · September – Oktober</div>
+        <div class="price-amount"><sup>ab </sup>180<sub> €/Nacht</sub></div>
+        <div class="price-min">Mindestaufenthalt: 3–4 Nächte</div>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">Hochsaison</div>
+        <div class="price-season">Hochsaison</div>
+        <div class="price-months">Juli – August</div>
+        <div class="price-amount"><sup>ab </sup>250<sub> €/Nacht</sub></div>
+        <div class="price-min">Mindestaufenthalt: 7 Nächte</div>
+      </div>
+    </div>
+
+    <div class="early-bird-box fi">
+      <div class="eb-badge">−10%<small>Einführung</small></div>
+      <div class="eb-text">
+        <h4>Early-Bird-Angebot · Begrenzte Zeit</h4>
+        <p>Als Dankeschön an unsere ersten Gäste bieten wir ein Einführungsangebot von 10% auf alle Buchungen — für eine begrenzte Anzahl an Aufenthalten. Jetzt sichern, bevor das Apartment ausgebucht ist.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking-section" id="buchen">
+  <div class="booking-inner">
+    <div class="fi">
+      <p class="section-eyebrow">Jetzt buchen</p>
+      <h2 class="section-title" style="color:var(--white);">Euer Platz an der <em style="color:var(--gold-light)">schönsten Küste.</em></h2>
+      <p class="section-lead">Prüft die Verfügbarkeit direkt hier — oder kontaktiert uns für persönliche Beratung. Als Gastgeber mit 15 Jahren Algarve-Erfahrung helfen wir euch, euren perfekten Urlaub zu gestalten.</p>
+    </div>
+
+    <!-- SMOOBU BOOKING WIDGET -->
+    <div class="booking-widget-placeholder fi">
+      <p>Hier euer Smoobu-Buchungswidget einfügen:<br>In Smoobu → Einstellungen → Buchungswidget → Code kopieren → hier einfügen:</p>
+      <code>&lt;!-- Smoobu Buchungswidget Code hier einfügen --&gt;<br>
+&lt;script src="https://app.smoobu.com/booking-widget/..."&gt;&lt;/script&gt;</code>
+    </div>
+
+    <div class="contact-strip fi">
+      <div class="contact-item">
+        <span class="ci-label">E-Mail</span>
+        <span class="ci-val">info@bellavita-collection.com</span>
+      </div>
+      <div class="contact-item">
+        <span class="ci-label">WhatsApp</span>
+        <span class="ci-val">+49 · · · · (hier eintragen)</span>
+      </div>
+      <div class="contact-item">
+        <span class="ci-label">AL-Lizenz</span>
+        <span class="ci-val" style="font-size:0.82rem;font-family:var(--sans);color:rgba(255,255,255,0.6);">AL/AL · · · · (hier eintragen)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">BellaVita Collection</div>
+      <p>Gegründet von Marcello &amp; Dario — zwei Brüder, die seit 15 Jahren die Algarve lieben und ihren Herzort jetzt mit der Welt teilen.</p>
+      <span class="footer-license">AL-Lizenz Portugal</span>
+    </div>
+    <div>
+      <h4>Das Apartment</h4>
+      <ul>
+        <li><a href="#apartment">Ausstattung &amp; Details</a></li>
+        <li><a href="#lage">Lage &amp; Anreise</a></li>
+        <li><a href="#preise">Preise &amp; Saisons</a></li>
+        <li><a href="#buchen">Verfügbarkeit prüfen</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Entdecken</h4>
+      <ul>
+        <li><a href="#entdecken">Gastronomie &amp; Wein</a></li>
+        <li><a href="#entdecken">Natur &amp; Strand</a></li>
+        <li><a href="#entdecken">Golf &amp; Sport</a></li>
+        <li><a href="#entdecken">Mit Kindern</a></li>
+        <li><a href="#entdecken">Ausflüge</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 BellaVita Collection · Alporchinhos · Algarve · Portugal</span>
+    <span>Datenschutz · Impressum · AGB</span>
+  </div>
+</footer>
+
+<script>
+// Fade-in on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+// Experience tabs
+function showTab(id, btn) {
+  document.querySelectorAll('.exp-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.exp-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
